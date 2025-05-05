@@ -80,7 +80,6 @@ exports.videoUplode = async (req, res) => {
 
         const supportedTypes = ["mp4", "mov"];
         const fileType = file.name.split(".")[1].toLowerCase();
-        console.log(fileType, file)
 
         if(!isFileTypeSupported(fileType, supportedTypes)) {
             return res.status(400).json({
@@ -95,7 +94,6 @@ exports.videoUplode = async (req, res) => {
                 msg: "File size is lager than 5mb."
             })
         }
-        console.log("jfhsief")
 
         const response = await uploadFileToCloudinary(file, "FileUploader", "video")
 
